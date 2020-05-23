@@ -1,4 +1,4 @@
-function Show() {
+function show() {
     let x = document.getElementById("kotka");
     if (x.style.display === "none") {
       x.style.display = "block";
