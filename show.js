@@ -7,5 +7,5 @@ function show(id_button, id_div) {
       x.style.display = "none";
       document.getElementById(id_button).innerHTML = "show visualisation";
     }
-  }
 }
+
