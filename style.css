@@ -1,0 +1,45 @@
+#teoet{
+    height: 10%;
+    width: 10%;
+}
+table{
+    border-collapse: collapse;
+    width: 1000px;
+    border-radius: 30px;
+}
+tr{
+    width: 1000px;
+    background-color: rgb(250, 125, 188);
+    border: solid black 3px;
+    border-radius: 30px;
+}
+
+td{
+    margin: 5px;
+}
+
+th{
+    float: left;
+}
+.Sort-Name{
+    display: inline-block;
+    font-size: 20px;
+}
+#Table-Section-Names{
+    font-size: 30px;
+    background-color: lightgray;
+}
+
+.Extend{
+    display: inline-block;
+}
+
+canvas{
+    margin-right: 10px;
+    width: 120%;
+}
+
+.reset_button{
+    margin-bottom: 10px;
+    display: inline-block;
+}

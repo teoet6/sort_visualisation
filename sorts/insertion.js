@@ -1,3 +1,4 @@
+//i need to help sasho 
 async function insertion_sort(target_canvas, n, delay, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){

@@ -1,34 +1,79 @@
-<html>
-	<head>
-		<script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            var Bubble_On=false;    
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <!--<script src="../JS/main.js"></script> -->
+        <script>
 			var palette = ["#ff0000", "#00ff00", "#0000ff"];
-		</script>
-		<script src="clone.js"></script>
-		<script src="sleep.js"></script>
-		<script src="pilon.js"></script>
-		<script src="drawer.js"></script>
-	</head>
-	<body>
-		<canvas id="canvas_bubble">
-			<script src="sorts/bubble.js"></script>
-			<script>
-				let canvas_bubble = document.getElementById("canvas_bubble");
-				bubble_sort(canvas_bubble, 30, 0, palette);
-			</script>
-		</canvas>
-		<canvas id="canvas_coctail">
-			<script src="sorts/coctail.js"></script>
-			<script>
-				let canvas_coctail = document.getElementById("canvas_coctail");
-				coctail_sort(canvas_coctail, 30, 0, palette);
-			</script>
-		</canvas>
-		<canvas id="canvas_insertion">
-			<script src="sorts/insertion.js"></script>
-			<script>
-				let canvas_insertion = document.getElementById("canvas_insertion");
-				insertion_sort(canvas_insertion, 30, 0, palette);
-			</script>
-		</canvas>
-	</body>
+        </script>
+        <script src="show.js"></script>
+        <script src="clone.js"></script>
+        <script src="drawer.js"></script>
+        <script src="pilon.js"></script>
+        <script src="sleep.js"></script>
+        <script src="sorts/bubble.js"></script>
+        <script src="sorts/cocktail.js"></script>
+        <!--<script src="../JS/sorters.js"></script>-->
+
+        <meta charset="UTF-8">
+
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <table class="Table">
+                <thead>
+                    <tr id="Table-Section-Names">
+                        <th>Algorithm-Name:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>bubble sort</p> 
+			                <script>let bubble_show=false, bubble_stop=true;</script>
+                            <button type="submit" class="Extend" id="bubble_show_button" onclick="show('bubble_show_button', 'bubble_div');bubble_show=!bubble_show" >Show Visualisation</button>
+                            <div id="bubble_div"  style="display: none;">
+                                <canvas id="canvas_bubble">
+                                    <script>
+                                        let canvas_bubble = document.getElementById("canvas_bubble");
+                                        bubble_reset(canvas_bubble, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="bubble_reset(canvas_bubble, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="bubble_stop_button" onclick="stop_button('bubble_stop_button', bubble_show);bubble_show=!bubble_show">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>cocktail sort</p> 
+			                <script>let cocktail_show=false, cocktail_stop=true;</script>
+                            <button type="submit" class="Extend" id="cocktail_show_button" onclick="show('cocktail_show_button', 'cocktail_div');cocktail_show=!cocktail_show" >Show Visualisation</button>
+                            <div id="cocktail_div"  style="display: none;">
+                                <canvas id="canvas_cocktail">
+                                    <script>
+                                        let canvas_cocktail = document.getElementById("canvas_cocktail");
+                                        cocktail_reset(canvas_cocktail, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="cocktail_reset(canvas_cocktail, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_show);cocktail_show=!cocktail_show">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>
