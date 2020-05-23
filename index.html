@@ -1,34 +1,53 @@
-<html>
-	<head>
-		<script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            var Bubble_On=false;    
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../CSS/style.css">
+        <!--<script src="../JS/main.js"></script> -->
+        <script>
 			var palette = ["#ff0000", "#00ff00", "#0000ff"];
-		</script>
-		<script src="clone.js"></script>
-		<script src="sleep.js"></script>
-		<script src="pilon.js"></script>
-		<script src="drawer.js"></script>
-	</head>
-	<body>
-		<canvas id="canvas_bubble">
-			<script src="sorts/bubble.js"></script>
-			<script>
-				let canvas_bubble = document.getElementById("canvas_bubble");
-				bubble_sort(canvas_bubble, 30, 0, palette);
-			</script>
-		</canvas>
-		<canvas id="canvas_coctail">
-			<script src="sorts/coctail.js"></script>
-			<script>
-				let canvas_coctail = document.getElementById("canvas_coctail");
-				coctail_sort(canvas_coctail, 30, 0, palette);
-			</script>
-		</canvas>
-		<canvas id="canvas_insertion">
-			<script src="sorts/insertion.js"></script>
-			<script>
-				let canvas_insertion = document.getElementById("canvas_insertion");
-				insertion_sort(canvas_insertion, 30, 0, palette);
-			</script>
-		</canvas>
-	</body>
+        </script>
+        <script src="../JS/show.js"></script>
+        <script src="../JS/clone.js"></script>
+        <script src="../JS/drawer.js"></script>
+        <script src="../JS/pilon.js"></script>
+        <script src="../JS/sleep.js"></script>
+        <script src="../JS/sorts/bubble.js"></script>
+        <!--<script src="../JS/sorters.js"></script>-->
+
+        <meta charset="UTF-8">
+
+        <title>Document</title>
+    </head>
+    <body>
+        <img id="teoet" src="../IMGs/teoet 6.jpg"  alt="tova e kotka">
+        <div>
+            <table class="Table">
+                <thead>
+                    <tr id="Table-Section-Names">
+                        <th>Algorithm-Name:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            bubble sort
+                            <input type="submit" value="kotka" class="Extend" onclick="Show()" onclick="bubble_sort" >
+                            <div id="kotka"  style="display: none;">
+                                <canvas id="canvas_bubble">
+                                    <script>
+                                        let canvas_bubble = document.getElementById("canvas_bubble");
+                                        bubble_sort(canvas_bubble, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>
