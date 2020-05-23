@@ -7,16 +7,17 @@
 		<script src="sleep.js"></script>
 		<script src="pilon.js"></script>
 		<script src="drawer.js"></script>
-		<script src="sorters.js"></script>
 	</head>
 	<body>
 		<canvas id="canvas_bubble">
+			<script src="sorts/bubble.js"></script>
 			<script>
 				let canvas_bubble = document.getElementById("canvas_bubble");
 				bubble_sort(canvas_bubble, 30, 0, palette);
 			</script>
 		</canvas>
 		<canvas id="canvas_coctail">
+			<script src="sorts/coctail.js"></script>
 			<script>
 				let canvas_coctail = document.getElementById("canvas_coctail");
 				coctail_sort(canvas_coctail, 30, 0, palette);
