@@ -19,6 +19,7 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 			do await sleep(delay); while(!cocktail_show)
 			if(cocktail_stop) return cocktail_stop=false;
 
+
 			if(target_array[i].value > target_array[i+1].value){
 				let buff = clone(target_array[i]);
 				target_array[i] = clone(target_array[i+1]);
@@ -45,7 +46,6 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 			drawArray(target_canvas, target_array, palette);
 			do await sleep(delay); while(!cocktail_show)
 			if(cocktail_stop) return cocktail_stop=false;
-
 			if(target_array[i].value < target_array[i-1].value){
 				let buff = clone(target_array[i]);
 				target_array[i] = clone(target_array[i-1]);
@@ -56,6 +56,7 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 			drawArray(target_canvas, target_array, palette);
 			do await sleep(delay); while(!cocktail_show)
 			if(cocktail_stop) return cocktail_stop=false;
+
 			target_array[l].id = 0;
 			target_array[r].id = 0;
 			target_array[i].id = 0;
@@ -77,6 +78,5 @@ async function cocktail_reset(target_canvas, n, delay, palette){
 
 	cocktail_stop=true;
 	while(cocktail_stop) await sleep(10);
-	
 	cocktail_sort(target_canvas, n, delay, palette);
 }

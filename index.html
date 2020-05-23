@@ -17,8 +17,6 @@
         <script src="sleep.js"></script>
         <script src="sorts/bubble.js"></script>
         <script src="sorts/cocktail.js"></script>
-        <!--<script src="../JS/sorters.js"></script>-->
-
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -38,6 +36,7 @@
 			                <script>let bubble_show=false, bubble_stop=true;</script>
                             <button type="submit" class="Extend" id="bubble_show_button" onclick="show('bubble_show_button', 'bubble_div');bubble_show=!bubble_show" >Show Visualisation</button>
                             <div id="bubble_div"  style="display: none;">
+
                                 <canvas id="canvas_bubble">
                                     <script>
                                         let canvas_bubble = document.getElementById("canvas_bubble");
@@ -69,6 +68,7 @@
                                     <button type="submit" class="reset_button" onclick="cocktail_reset(canvas_cocktail, 30, 0, palette)"> Reset Visualisation</button>
                                     <button type="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_show);cocktail_show=!cocktail_show">Pause Visualisation</button>
                                 </div>
+
                             </div>
                         </td>
                     </tr>

@@ -8,3 +8,4 @@ function show(id_button, id_div) {
       document.getElementById(id_button).innerHTML = "show visualisation";
     }
   }
+}
