@@ -16,8 +16,7 @@
         <script src="pilon.js"></script>
         <script src="sleep.js"></script>
         <script src="sorts/bubble.js"></script>
-        <!--<script src="../JS/sorters.js"></script>-->
-
+        <script src="sorts/cocktail.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -33,16 +32,43 @@
                 <tbody>
                     <tr id="Sorting-Type">
                         <td class="Sort-Name">
-                            bubble sort
-			    <script>let bubble_show=false, bubble_stop=true;</script>
-                            <input type="submit" value="kotka" class="Extend" onclick="show();bubble_show=!bubble_show" onclick="bubble_sort" >
-                            <div id="kotka"  style="display: none;">
+                            <p>bubble sort</p> 
+			                <script>let bubble_show=false, bubble_stop=true;</script>
+                            <button type="submit" class="Extend" id="bubble_show_button" onclick="show('bubble_show_button', 'bubble_div');bubble_show=!bubble_show" >Show Visualisation</button>
+                            <div id="bubble_div"  style="display: none;">
+
                                 <canvas id="canvas_bubble">
                                     <script>
                                         let canvas_bubble = document.getElementById("canvas_bubble");
                                         bubble_reset(canvas_bubble, 30, 0, palette);
                                     </script>
                                 </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="bubble_reset(canvas_bubble, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="bubble_stop_button" onclick="stop_button('bubble_stop_button', bubble_show);bubble_show=!bubble_show">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>cocktail sort</p> 
+			                <script>let cocktail_show=false, cocktail_stop=true;</script>
+                            <button type="submit" class="Extend" id="cocktail_show_button" onclick="show('cocktail_show_button', 'cocktail_div');cocktail_show=!cocktail_show" >Show Visualisation</button>
+                            <div id="cocktail_div"  style="display: none;">
+                                <canvas id="canvas_cocktail">
+                                    <script>
+                                        let canvas_cocktail = document.getElementById("canvas_cocktail");
+                                        cocktail_reset(canvas_cocktail, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="cocktail_reset(canvas_cocktail, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_show);cocktail_show=!cocktail_show">Pause Visualisation</button>
+                                </div>
+
                             </div>
                         </td>
                     </tr>

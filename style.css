@@ -9,7 +9,7 @@ table{
 }
 tr{
     width: 1000px;
-    background-color: rgb(218, 102, 189);
+    background-color: rgb(250, 125, 188);
     border: solid black 3px;
     border-radius: 30px;
 }
@@ -31,5 +31,15 @@ th{
 }
 
 .Extend{
+    display: inline-block;
+}
+
+canvas{
+    margin-right: 10px;
+    width: 120%;
+}
+
+.reset_button{
+    margin-bottom: 10px;
     display: inline-block;
 }
