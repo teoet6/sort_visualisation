@@ -34,12 +34,13 @@
                     <tr id="Sorting-Type">
                         <td class="Sort-Name">
                             bubble sort
-                            <input type="submit" value="kotka" class="Extend" onclick="show()" onclick="bubble_sort" >
+			    <script>let bubble_show=false, bubble_stop=true;</script>
+                            <input type="submit" value="kotka" class="Extend" onclick="show();bubble_show=!bubble_show" onclick="bubble_sort" >
                             <div id="kotka"  style="display: none;">
                                 <canvas id="canvas_bubble">
                                     <script>
                                         let canvas_bubble = document.getElementById("canvas_bubble");
-                                        bubble_sort(canvas_bubble, 30, 0, palette);
+                                        bubble_reset(canvas_bubble, 30, 0, palette);
                                     </script>
                                 </canvas>
                             </div>
