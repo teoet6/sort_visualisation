@@ -20,6 +20,7 @@
         <script src="sorts/insertion.js"></script>
         <script src="sorts/heap.js"></script>
         <script src="sorts/selection.js"></script>
+        <script src="sorts/merge.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -127,8 +128,28 @@
                                 </canvas>
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
-                                    <button type="submit" class="reset_button" onclick="selection_reset(canvas_selection, 30, 50, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" onclick="selection_reset(canvas_selection, 30, 0, palette)"> Reset Visualisation</button>
                                     <button TYpe="submit" class="reset_button" id="selection_stop_button" onclick="stop_button('selection_stop_button', selection_pause, selection_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>merge sort</p> 
+                            <button type="submit" class="Extend" id="merge_show_button" onclick="show('merge_show_button', 'merge_div', merge_pause, merge_resume);" >Show Visualisation</button>
+                            <div id="merge_div"  style="display: none;">
+
+                                <canvas id="canvas_merge">
+                                    <script>
+                                        let canvas_merge = document.getElementById("canvas_merge");
+                                        merge_sort(canvas_merge, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="merge_reset(canvas_merge, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="merge_stop_button" onclick="stop_button('merge_stop_button', merge_pause, merge_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>

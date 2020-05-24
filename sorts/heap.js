@@ -65,7 +65,6 @@ function heap_sort(target_canvas, n, delay, palette){
 		input_array[i] = new Pilon(i+1);
 	}
 	input_array.sort(() => Math.random() - 0.5);
-	console.log(input_array);
 	return heap_sort_util(input_array, target_canvas, delay, palette);
 }
 
