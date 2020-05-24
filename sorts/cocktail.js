@@ -1,7 +1,7 @@
 //cocktail_pause() / cocktail_resume() for pausing/resuming
 //cocktail_reset() for resetting (please give parameters)
 let cocktail_stop = false;
-let cocktail_pauses = 0;
+let cocktail_pauses = 1;
 async function cocktail_sort(target_canvas, n, delay, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){

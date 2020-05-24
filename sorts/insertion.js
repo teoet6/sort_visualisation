@@ -1,7 +1,7 @@
 //insertion_pause() / insertion_resume() for pausing/resuming
 //insertion_reset() for resetting (please give parameters)
 let insertion_stop = false;
-let insertion_pauses = 0;
+let insertion_pauses = 1;
 async function insertion_sort(target_canvas, n, delay, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){

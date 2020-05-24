@@ -1,7 +1,7 @@
 //bubble_pause() / bubble_resume() for pausing/resuming
 //bubble_reset() for resetting (please give parameters)
 let bubble_stop = false;
-let bubble_pauses = 0;
+let bubble_pauses = 1;
 async function bubble_sort(target_canvas, n, delay, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){

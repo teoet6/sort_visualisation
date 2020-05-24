@@ -18,6 +18,7 @@
         <script src="sorts/bubble.js"></script>
         <script src="sorts/cocktail.js"></script>
         <script src="sorts/insertion.js"></script>
+        <script src="sorts/heap.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -87,6 +88,26 @@
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="insertion_reset(canvas_insertion, 30, 0, palette)"> Reset Visualisation</button>
                                     <BUTTON TYpe="submit" class="reset_button" id="insertion_stop_button" onclick="stop_button('insertion_stop_button', insertion_pause, insertion_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>heap sort</p> 
+                            <button type="submit" class="Extend" id="heap_show_button" onclick="show('heap_show_button', 'heap_div', heap_pause, heap_resume);" >Show Visualisation</button>
+                            <div id="heap_div"  style="display: none;">
+
+                                <canvas id="canvas_heap">
+                                    <script>
+                                        let canvas_heap = document.getElementById("canvas_heap");
+                                        heap_sort(canvas_heap, 30, 100, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 0, palette)"> Reset Visualisation</button>
+                                    <BUTTON TYpe="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
