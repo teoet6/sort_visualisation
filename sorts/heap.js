@@ -50,6 +50,8 @@ async function heap_sort_util(input, target_canvas, delay, palette) {
         }while(heap_pauses > 0)
         max_heap(input, 0)
     }
+    while(!heap_stop)await sleep(delay);
+    return heap_stop=false;
 }
 
 function heap_sort(target_canvas, n, delay, palette){

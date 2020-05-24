@@ -67,7 +67,7 @@
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="cocktail_reset(canvas_cocktail, 30, 0, palette)"> Reset Visualisation</button>
-                                    <BUTTON TYpe="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_pause, cocktail_resume)">Pause Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_pause, cocktail_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
@@ -87,7 +87,7 @@
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="insertion_reset(canvas_insertion, 30, 0, palette)"> Reset Visualisation</button>
-                                    <BUTTON TYpe="submit" class="reset_button" id="insertion_stop_button" onclick="stop_button('insertion_stop_button', insertion_pause, insertion_resume)">Pause Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="insertion_stop_button" onclick="stop_button('insertion_stop_button', insertion_pause, insertion_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
@@ -101,13 +101,13 @@
                                 <canvas id="canvas_heap">
                                     <script>
                                         let canvas_heap = document.getElementById("canvas_heap");
-                                        heap_sort(canvas_heap, 30, 100, palette);
+                                        heap_sort(canvas_heap, 30, 50, palette);
                                     </script>
                                 </canvas>
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
-                                    <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 0, palette)"> Reset Visualisation</button>
-                                    <BUTTON TYpe="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
+                                    <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 50, palette)"> Reset Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
