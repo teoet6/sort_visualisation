@@ -19,6 +19,7 @@
         <script src="sorts/cocktail.js"></script>
         <script src="sorts/insertion.js"></script>
         <script src="sorts/heap.js"></script>
+        <script src="sorts/selection.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -108,6 +109,26 @@
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 50, palette)"> Reset Visualisation</button>
                                     <button TYpe="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>selection sort</p> 
+                            <button type="submit" class="Extend" id="selection_show_button" onclick="show('selection_show_button', 'selection_div', selection_pause, selection_resume);" >Show Visualisation</button>
+                            <div id="selection_div"  style="display: none;">
+
+                                <canvas id="canvas_selection">
+                                    <script>
+                                        let canvas_selection = document.getElementById("canvas_selection");
+                                        selection_sort(canvas_selection, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="selection_reset(canvas_selection, 30, 50, palette)"> Reset Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="selection_stop_button" onclick="stop_button('selection_stop_button', selection_pause, selection_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>

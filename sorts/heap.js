@@ -16,6 +16,11 @@ function max_heap(input, i) {
     }
 
     if (max != i) {
+        if(i>0){
+            input[i+1].id=0
+            input[i-1].id=0
+        }
+        input[i].id=1
         swap(input, i, max)
         max_heap(input, max)
     }
