@@ -43,3 +43,7 @@ canvas{
     margin-bottom: 10px;
     display: inline-block;
 }
+
+p{
+	display: inline-block;
+}

@@ -1,5 +1,7 @@
-//bubble_show for pausing
+//bubble_pause() / bubble_resume() for pausing/resuming
 //bubble_reset() for resetting (please give parameters)
+let bubble_stop = false;
+let bubble_pauses = 0;
 async function bubble_sort(target_canvas, n, delay, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
@@ -13,8 +15,10 @@ async function bubble_sort(target_canvas, n, delay, palette){
 			target_array[i].id = 1;
 			target_array[i+1].id = 1;
 			drawArray(target_canvas, target_array, palette);
-			do await sleep(delay); while(!bubble_show)
-			if(bubble_stop) return bubble_stop=false;
+			do{
+				await sleep(delay);
+				if(bubble_stop) return bubble_stop=false;
+			}while(bubble_pauses > 0)
 			
 
 			if(target_array[i].value > target_array[i+1].value){
@@ -25,26 +29,32 @@ async function bubble_sort(target_canvas, n, delay, palette){
 			}
 
 			drawArray(target_canvas, target_array, palette);
-			do await sleep(delay); while(!bubble_show)
-			if(bubble_stop) return bubble_stop=false;
+			do{
+				await sleep(delay);
+				if(bubble_stop) return bubble_stop=false;
+			}while(bubble_pauses > 0)
 			target_array[t].id = 0;
 			target_array[i].id = 0;
 			target_array[i+1].id = 0;
 		}
 		if(!swapped)break;
 	}
-	bubble_sort(target_canvas, n, delay, palette);
+	while(!bubble_stop)await sleep(delay);
+	return bubble_stop=false;
 }
 
 async function bubble_reset(target_canvas, n, delay, palette){
-	if(bubble_stop==true){
-		bubble_stop=false;
-		bubble_sort(target_canvas, n, delay, palette);
-		return;
-	}
-
 	bubble_stop=true;
 	while(bubble_stop) await sleep(10);
 	
 	bubble_sort(target_canvas, n, delay, palette);
+}
+
+function bubble_pause(){
+	bubble_pauses++;
+}
+
+function bubble_resume(){
+	bubble_pauses--;
+	bubble_pauses = Math.max(bubble_pauses, 0);
 }
