@@ -2,21 +2,22 @@
 //quick_reset() for resetting (please give parameters)
 let quick_stop = false;
 let quick_pauses = 1;
-function partition(items, left, right) {
-    var pivot   = items[Math.floor((right + left) / 2)], //middle element
+var quick_target_array=[];
+function partition(left, right) {
+    var pivot   = quick_target_array[Math.floor((right + left) / 2)], //middle element
         i       = left, //left pointer
         j       = right; //right pointer
     while (i <= j) {
-        while (items[i].value < pivot.value) {
+        while (quick_target_array[i].value < pivot.value) {
             i++;
         }
-        while (items[j].value > pivot.value) {
+        while (quick_target_array[j].value > pivot.value) {
             j--;
         }
         if (i <= j) {
-            let buff = clone(items[i]);
-            items[i] = clone(items[j]);
-            items[j] = buff;
+            let buff = clone(quick_target_array[i]);
+            quick_target_array[i] = clone(quick_target_array[j]);
+            quick_target_array[j] = buff;
             i++;
             j--;
         }
@@ -24,57 +25,58 @@ function partition(items, left, right) {
     return i;
 }
 
-async function quick_sort_util(items, left, right, target_canvas, delay, palette) {
+async function quick_sort_util(left, right, target_canvas, delay, palette) {
+    console.log(left, right)
     var index;
-    if (items.length > 1){
-        index = partition(items, left, right);
+    if ((right-left+1) > 1){
+        index = partition(left, right);
         if (left < index - 1){
             if(index>0){
-                items[index-1].id=0
+                quick_target_array[index-1].id=0
             }
-            items[index].id=1
+            quick_target_array[index].id=1
             
             if(left>0){
-                items[left-1].id=0
+                quick_target_array[left-1].id=0
             }
-            items[left].id=1
-            quick_sort_util(items, left, index - 1, target_canvas, delay, palette);
-            ////
-            drawArray(target_canvas, items, palette);
-            do{
-                await sleep(delay);
-                if(quick_stop) return quick_stop=false;
-            }while(quick_pauses > 0)
-        }
-        if (index < right){
-            if(index>0){
-                items[index-1].id=0
-            }
-            items[index].id=1
-            
-            if(right>0){
-                items[right-1].id=0
-            }
-            items[right].id=1
-    		quick_sort_util(items, index, right, target_canvas, delay, palette);
-            ////
-            drawArray(target_canvas, items, palette);
+            quick_target_array[left].id=1
+            drawArray(target_canvas, quick_target_array, palette);
 			do{
                 await sleep(delay);
                 if(quick_stop) return quick_stop=false;
             }while(quick_pauses > 0)
+            await quick_sort_util(left, index - 1, target_canvas, delay, palette);
+            ////
+        }
+        if (index < right){
+            if(index>0){
+                quick_target_array[index-1].id=0
+            }
+            quick_target_array[index].id=1
+            
+            if(right>0){
+                quick_target_array[right-1].id=0
+            }
+            quick_target_array[right].id=1
+            drawArray(target_canvas, quick_target_array, palette);
+			do{
+                await sleep(delay);
+                if(quick_stop) return quick_stop=false;
+            }while(quick_pauses > 0)
+    		await quick_sort_util(index, right, target_canvas, delay, palette);
+            ////
+            
         }
     }
     while(!quick_stop)await sleep(delay);
 	return quick_stop=false;
 }
-function quick_sort(target_canvas, n, delay, palette){
-    let target_array=[];
+async function quick_sort(target_canvas, n, delay, palette){
     for(let i = 0 ; i < n ; i++){
-        target_array[i] = new Pilon(i+1);
+        quick_target_array[i] = new Pilon(i+1);
     }
-    target_array.sort(() => Math.random() - 0.5);
-    quick_sort_util(target_array, 0, n-1, target_canvas, delay, palette);
+    quick_target_array.sort(() => Math.random() - 0.5);
+    quick_sort_util(0, n-1, target_canvas, delay, palette);
 }
 async function quick_reset(target_canvas, n, delay, palette){
 	quick_stop=true;

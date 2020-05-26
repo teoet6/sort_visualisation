@@ -25,6 +25,7 @@
         <script src="sorts/quick.js"></script>
         <script src="sorts/radix.js"></script>
         <script src="sorts/odd-even.js"></script>
+        <script src="sorts/shell.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -167,7 +168,7 @@
                                 <canvas id="canvas_quick">
                                     <script>
                                         let canvas_quick = document.getElementById("canvas_quick");
-                                        quick_sort(canvas_quick, 30, 100, palette);
+                                        quick_sort(canvas_quick, 30, 0, palette);
                                     </script>
                                 </canvas>
                                 <div>
@@ -234,6 +235,27 @@
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="oddEven_reset(canvas_oddEven, 30, 0, palette)"> Reset Visualisation</button>
                                     <button type="submit" class="reset_button" id="oddEven_stop_button" onclick="stop_button('oddEven_stop_button', oddEven_pause, oddEven_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>shell sort</p>
+                            <button type="submit" class="Extend" id="shell_show_button" onclick="show('shell_show_button', 'shell_div', shell_pause, shell_resume);" >Show Visualisation</button>
+                            <div id="shell_div"  style="display: none;">
+
+                                <canvas id="canvas_shell">
+                                    <script>
+                                        let canvas_shell = document.getElementById("canvas_shell");
+                                        shell_sort(canvas_shell, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="shell_reset(canvas_shell, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="shell_stop_button" onclick="stop_button('shell_stop_button', shell_pause, shell_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
