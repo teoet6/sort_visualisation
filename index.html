@@ -22,6 +22,10 @@
         <script src="sorts/selection.js"></script>
         <script src="sorts/merge.js"></script>
         <script src="sorts/counting.js"></script>
+        <script src="sorts/quick.js"></script>
+        <script src="sorts/radix.js"></script>
+        <script src="sorts/odd-even.js"></script>
+        <script src="sorts/shell.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -104,12 +108,12 @@
                                 <canvas id="canvas_heap">
                                     <script>
                                         let canvas_heap = document.getElementById("canvas_heap");
-                                        heap_sort(canvas_heap, 30, 50, palette);
+                                        heap_sort(canvas_heap, 30, 0, palette);
                                     </script>
                                 </canvas>
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
-                                    <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 50, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, 0, palette)"> Reset Visualisation</button>
                                     <button TYpe="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
@@ -147,10 +151,30 @@
                                         merge_sort(canvas_merge, 30, 0, palette);
                                     </script>
                                 </canvas>
-                                <div>
+                                <div>yyy
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="merge_reset(canvas_merge, 30, 0, palette)"> Reset Visualisation</button>
                                     <button TYpe="submit" class="reset_button" id="merge_stop_button" onclick="stop_button('merge_stop_button', merge_pause, merge_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>quick sort</p> 
+                            <button type="submit" class="Extend" id="quick_show_button" onclick="show('quick_show_button', 'quick_div', quick_pause, quick_resume);" >Show Visualisation</button>
+                            <div id="quick_div"  style="display: none;">
+
+                                <canvas id="canvas_quick">
+                                    <script>
+                                        let canvas_quick = document.getElementById("canvas_quick");
+                                        quick_sort(canvas_quick, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="quick_reset(canvas_quick, 30, 100, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="quick_stop_button" onclick="stop_button('quick_stop_button', quick_pause, quick_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
@@ -171,6 +195,67 @@
                                     <script src="buttons/stop_button.js"></script>
                                     <button type="submit" class="reset_button" onclick="counting_reset(canvas_counting, 30, 0, palette)"> Reset Visualisation</button>
                                     <button type="submit" class="reset_button" id="counting_stop_button" onclick="stop_button('counting_stop_button', counting_pause, counting_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>radix sort</p> 
+                            <button type="submit" class="Extend" id="radix_show_button" onclick="show('radix_show_button', 'radix_div', radix_pause, radix_resume);" >Show Visualisation</button>
+                            <div id="radix_div"  style="display: none;">
+
+                                <canvas id="canvas_radix">
+                                    <script>
+                                        let canvas_radix = document.getElementById("canvas_radix");
+                                        radix_sort(canvas_radix, 30, 100, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="radix_reset(canvas_radix, 30, 100, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="radix_stop_button" onclick="stop_button('radix_stop_button', radix_pause, radix_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>odd-even sort</p> 
+                            <button type="submit" class="Extend" id="oddEven_show_button" onclick="show('oddEven_show_button', 'oddEven_div', oddEven_pause, oddEven_resume);" >Show Visualisation</button>
+                            <div id="oddEven_div"  style="display: none;">
+
+                                <canvas id="canvas_oddEven">
+                                    <script>
+                                        let canvas_oddEven = document.getElementById("canvas_oddEven");
+                                        oddEven_sort(canvas_oddEven, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="oddEven_reset(canvas_oddEven, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" id="oddEven_stop_button" onclick="stop_button('oddEven_stop_button', oddEven_pause, oddEven_resume)">Pause Visualisation</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr id="Sorting-Type">
+                        <td class="Sort-Name">
+                            <p>shell sort</p>
+                            <button type="submit" class="Extend" id="shell_show_button" onclick="show('shell_show_button', 'shell_div', shell_pause, shell_resume);" >Show Visualisation</button>
+                            <div id="shell_div"  style="display: none;">
+
+                                <canvas id="canvas_shell">
+                                    <script>
+                                        let canvas_shell = document.getElementById("canvas_shell");
+                                        shell_sort(canvas_shell, 30, 0, palette);
+                                    </script>
+                                </canvas>
+                                <div>
+                                    <script src="buttons/stop_button.js"></script>
+                                    <button type="submit" class="reset_button" onclick="shell_reset(canvas_shell, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button TYpe="submit" class="reset_button" id="shell_stop_button" onclick="stop_button('shell_stop_button', shell_pause, shell_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
                         </td>
