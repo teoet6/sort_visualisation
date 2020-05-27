@@ -26,7 +26,6 @@
         <script src="sorts/radix.js"></script>
         <script src="sorts/odd-even.js"></script>
         <script src="sorts/shell.js"></script>
-        <script src="background.js"></script>
         <meta charset="UTF-8">
 
         <title>Document</title>
@@ -248,16 +247,19 @@
                             <button type="submit" class="Extend" id="shell_show_button" onclick="show('shell_show_button', 'shell_div', shell_pause, shell_resume);" >Show Visualisation</button>
                             <div id="shell_div"  style="display: none;">
 
+                                <div class="slidecontainer">
+                                    <input type="range" min="1" max="1000" value="500" class="slider" id="shell_delay">
+                                </div>
+
                                 <canvas id="canvas_shell">
                                     <script>
                                         let canvas_shell = document.getElementById("canvas_shell");
-                                        //var shell_delay = document.getElementbyID("shell_delay").value;
                                         shell_sort(canvas_shell, 30, palette);
                                     </script>
                                 </canvas>
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
-                                    <button type="submit" class="reset_button" onclick="shell_reset(canvas_shell, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" onclick="shell_reset(canvas_shell, 30, palette)"> Reset Visualisation</button>
                                     <button TYpe="submit" class="reset_button" id="shell_stop_button" onclick="stop_button('shell_stop_button', shell_pause, shell_resume)">Pause Visualisation</button>
                                 </div>
                             </div>
