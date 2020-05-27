@@ -188,12 +188,12 @@
                                 <canvas id="canvas_counting">
                                     <script>
                                         let canvas_counting = document.getElementById("canvas_counting");
-                                        counting_sort(canvas_counting, 30, 0, palette);
+                                        counting_sort(canvas_counting, 30, 50, palette);
                                     </script>
                                 </canvas>
                                 <div>
                                     <script src="buttons/stop_button.js"></script>
-                                    <button type="submit" class="reset_button" onclick="counting_reset(canvas_counting, 30, 0, palette)"> Reset Visualisation</button>
+                                    <button type="submit" class="reset_button" onclick="counting_reset(canvas_counting, 30, 50, palette)"> Reset Visualisation</button>
                                     <button type="submit" class="reset_button" id="counting_stop_button" onclick="stop_button('counting_stop_button', counting_pause, counting_resume)">Pause Visualisation</button>
                                 </div>
                             </div>

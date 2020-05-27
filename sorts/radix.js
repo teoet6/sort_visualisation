@@ -24,12 +24,12 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 				array[j-1].id=0;
 			}
 			array[j].id=1;
+			drawArray(target_canvas, array, palette);
+			do{
+				await sleep(delay);
+				if(radix_stop) return radix_stop=false;
+			}while(radix_pauses > 0)
 		}
-		drawArray(target_canvas, array, palette);
-		do{
-			await sleep(delay);
-			if(radix_stop) return radix_stop=false;
-		}while(radix_pauses > 0)
 		array = [].concat(...buckets);
 	}
 	while(!radix_stop)await sleep(delay);
