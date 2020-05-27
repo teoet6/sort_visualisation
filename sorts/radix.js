@@ -11,7 +11,7 @@ function getMax(array){
 }
 
 function getPosition(num,place){
-    return Math.floor(num / Math.pow(10,place)) % 10;
+	return Math.floor(num / Math.pow(10,place)) % 10;
 }
 
 async function radix_sort_util(array, target_canvas, delay, palette){
@@ -19,29 +19,29 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 	for (let i = 0; i < max; i++) {
 		let buckets = Array.from({length:10}, () => []);
 		for (let j = 0; j < array.length; j++){
-            buckets[getPosition(array[j].value, i)].push(array[j]);
-            if(j>0){
-                array[j-1].id=0;
-            }
-            array[j].id=1;
-        }
-        drawArray(target_canvas, array, palette);
-        do{
-            await sleep(delay);
-            if(radix_stop) return radix_stop=false;
-        }while(radix_pauses > 0)
+			buckets[getPosition(array[j].value, i)].push(array[j]);
+			if(j>0){
+				array[j-1].id=0;
+			}
+			array[j].id=1;
+		}
+		drawArray(target_canvas, array, palette);
+		do{
+			await sleep(delay);
+			if(radix_stop) return radix_stop=false;
+		}while(radix_pauses > 0)
 		array = [].concat(...buckets);
-    }
-    while(!radix_stop)await sleep(delay);
+	}
+	while(!radix_stop)await sleep(delay);
 	return radix_stop=false;
 }
 function radix_sort(target_canvas, n, delay, palette){
-    let target_array=[];
-    for(let i = 0 ; i < n ; i++){
-        target_array[i] = new Pilon(i+1);
-    }
-    target_array.sort(() => Math.random() - 0.5);
-    radix_sort_util(target_array, target_canvas, delay, palette);
+	let target_array=[];
+	for(let i = 0 ; i < n ; i++){
+		target_array[i] = new Pilon(i+1);
+	}
+	target_array.sort(() => Math.random() - 0.5);
+	radix_sort_util(target_array, target_canvas, delay, palette);
 }
 async function radix_reset(target_canvas, n, delay, palette){
 	radix_stop=true;
