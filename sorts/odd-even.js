@@ -14,6 +14,7 @@ async function oddEven_sort_util(target_array, target_canvas, delay, palette) {
 			sorted = false;
 			if(i>0){
 				target_array[i-1].id=0;
+				target_array[i+1].id=0;
 			}
 			target_array[i].id=1;
 			
