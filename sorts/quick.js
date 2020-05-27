@@ -1,4 +1,4 @@
-//quick_pause() / quick_resume() for pausing/resuming
+//queck_pause() / quick_resume() for pausing/resuming
 //quick_reset() for resetting (please give parameters)
 let quick_stop = false;
 let quick_pauses = 1;

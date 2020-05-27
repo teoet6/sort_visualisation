@@ -2,10 +2,22 @@
 //radix_reset() for resetting (please give parameters)
 let radix_stop = false;
 let radix_pauses = 1;
-function getMax(array){
+async function getMax(array, target_canvas, delay, palette){
 	let max = 0;
-	for (let num of array) {
+	let maxInd = 0;
+	for (let i in array) {
+		num = array[i];
+		maxInd = (max < num.toString().length) ? i : maxInd;
 		max = (max < num.toString().length) ? num.toString().length : max;
+		array[i].id=1;
+		array[maxInd].id=2;
+		drawArray(target_canvas, array, palette);
+		do{
+			await sleep(delay);
+			if(radix_stop) return radix_stop=false;
+		}while(radix_pauses > 0)
+		array[i].id=0;
+		array[maxInd].id=0;
 	}
 	return max;
 }
@@ -15,20 +27,18 @@ function getPosition(num,place){
 }
 
 async function radix_sort_util(array, target_canvas, delay, palette){
-	var max = getMax(array);
+	var max = await getMax(array, target_canvas, delay, palette);
 	for (let i = 0; i < max; i++) {
 		let buckets = Array.from({length:10}, () => []);
 		for (let j = 0; j < array.length; j++){
 			buckets[getPosition(array[j].value, i)].push(array[j]);
-			if(j>0){
-				array[j-1].id=0;
-			}
 			array[j].id=1;
 			drawArray(target_canvas, array, palette);
 			do{
 				await sleep(delay);
 				if(radix_stop) return radix_stop=false;
 			}while(radix_pauses > 0)
+			array[j].id=0;
 		}
 		array = [].concat(...buckets);
 	}
