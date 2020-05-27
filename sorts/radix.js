@@ -4,20 +4,9 @@ let radix_stop = false;
 let radix_pauses = 1;
 async function getMax(array, target_canvas, delay, palette){
 	let max = 0;
-	let maxInd = 0;
 	for (let i in array) {
 		num = array[i];
-		maxInd = (max < num.toString().length) ? i : maxInd;
 		max = (max < num.toString().length) ? num.toString().length : max;
-		array[i].id=1;
-		array[maxInd].id=2;
-		drawArray(target_canvas, array, palette);
-		do{
-			await sleep(delay);
-			if(radix_stop) return radix_stop=false;
-		}while(radix_pauses > 0)
-		array[i].id=0;
-		array[maxInd].id=0;
 	}
 	return max;
 }
@@ -29,6 +18,8 @@ function getPosition(num,place){
 async function radix_sort_util(array, target_canvas, delay, palette){
 	var max = await getMax(array, target_canvas, delay, palette);
 	for (let i = 0; i < max; i++) {
+		let sorted = true;
+		/*Makes an array of empty arrays with length 10*/
 		let buckets = Array.from({length:10}, () => []);
 		for (let j = 0; j < array.length; j++){
 			buckets[getPosition(array[j].value, i)].push(array[j]);
@@ -39,8 +30,23 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 				if(radix_stop) return radix_stop=false;
 			}while(radix_pauses > 0)
 			array[j].id=0;
+			if(j<array.length-1)sorted = sorted && array[j].value < array[j+1].value;
 		}
-		array = [].concat(...buckets);
+		if(sorted)break;
+		let g=0;
+		for(let i=0;i<buckets.length;i++){
+			for(let j=0;j<buckets[i].length;j++){
+				array[g] = clone(buckets[i][j]);
+				array[g].id=1;
+				drawArray(target_canvas, array, palette);
+				do{
+					await sleep(delay);
+					if(radix_stop) return radix_stop=false;
+				}while(radix_pauses > 0)
+				array[g].id=0;
+				g++;
+			}
+		}
 	}
 	while(!radix_stop)await sleep(delay);
 	return radix_stop=false;
@@ -54,8 +60,11 @@ function radix_sort(target_canvas, n, delay, palette){
 	radix_sort_util(target_array, target_canvas, delay, palette);
 }
 async function radix_reset(target_canvas, n, delay, palette){
+	if(radix_stop)return;
+	//console.log("entered");
 	radix_stop=true;
-	while(radix_stop) await sleep(10);
+	while(radix_stop) await sleep(1);
+	//console.log("exited");
 	
 	radix_sort(target_canvas, n, delay, palette);
 }

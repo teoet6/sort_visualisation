@@ -110,8 +110,9 @@ async function merge_sort(target_canvas, n ,delay, palette){
 }
 
 async function merge_reset(target_canvas, n, delay, palette){
+	if(merge_stop)return;
 	merge_stop=true;
-	while(merge_stop) await sleep(10);
+	while(merge_stop) await sleep(1);
 	
 	merge_sort(target_canvas, n, delay, palette);
 }
