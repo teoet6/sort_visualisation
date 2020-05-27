@@ -1,6 +1,0 @@
-		index.html 
--> remove delay parameter when calling functions
--> modify this code - var SortName_delay = document.getElementbyID("SortName_delay").value;
-		sortName.js
--> remove the delay parameter in the function
--> replace every delay with SortName_delay
