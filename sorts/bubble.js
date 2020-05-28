@@ -2,7 +2,8 @@
 //bubble_reset() for resetting (please give parameters)
 let bubble_stop = false;
 let bubble_pauses = 1;
-async function bubble_sort(target_canvas, n, delay, palette){
+var bubble_delay = document.getElementById("bubble_delay");
+async function bubble_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
 		target_array[i] = new Pilon(i+1);
@@ -16,7 +17,8 @@ async function bubble_sort(target_canvas, n, delay, palette){
 			target_array[i+1].id = 1;
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				bubble_delay=document.getElementById('bubble_delay');
+				await sleep(bubble_delay.value);
 				if(bubble_stop) return bubble_stop=false;
 			}while(bubble_pauses > 0)
 			
@@ -30,7 +32,8 @@ async function bubble_sort(target_canvas, n, delay, palette){
 
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				bubble_delay=document.getElementById('bubble_delay');
+				await sleep(bubble_delay.value);
 				if(bubble_stop) return bubble_stop=false;
 			}while(bubble_pauses > 0)
 			target_array[t].id = 0;
@@ -39,15 +42,15 @@ async function bubble_sort(target_canvas, n, delay, palette){
 		}
 		if(!swapped)break;
 	}
-	while(!bubble_stop)await sleep(delay);
+	while(!bubble_stop)await sleep(bubble_delay.value);
 	return bubble_stop=false;
 }
 
-async function bubble_reset(target_canvas, n, delay, palette){
+async function bubble_reset(target_canvas, n, palette){
 	bubble_stop=true;
 	while(bubble_stop) await sleep(10);
 	
-	bubble_sort(target_canvas, n, delay, palette);
+	bubble_sort(target_canvas, n, palette);
 }
 
 function bubble_pause(){

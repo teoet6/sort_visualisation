@@ -2,6 +2,7 @@
 //heap_reset() for resetting (please give parameters)
 let heap_stop = false;
 let heap_pauses = 1;
+var heap_delay = document.getElementById("heap_delay");
 function max_heap(input, i) {
     const left = 2 * i + 1
     const right = 2 * i + 2
@@ -33,14 +34,15 @@ function swap(input, indexA, indexB) {
     input[indexB] = temp
 }
 
-async function heap_sort_util(input, target_canvas, delay, palette) {   
+async function heap_sort_util(input, target_canvas, palette) {   
     arrLength = input.length
 
     for (let i = Math.floor(arrLength / 2); i >= 0; i -= 1)      {
         max_heap(input, i)
         drawArray(target_canvas, input, palette);
         do{
-        	await sleep(delay);
+            heap_delay = document.getElementById("heap_delay");
+        	await sleep(heap_delay.value);
         	if(heap_stop) return heap_stop=false;
         }while(heap_pauses > 0)
       }
@@ -50,29 +52,30 @@ async function heap_sort_util(input, target_canvas, delay, palette) {
         arrLength--
         drawArray(target_canvas, input, palette);
         do{
-        	await sleep(delay);
+            heap_delay = document.getElementById("heap_delay");
+        	await sleep(heap_delay.value);
         	if(heap_stop) return heap_stop=false;
         }while(heap_pauses > 0)
         max_heap(input, 0)
     }
-    while(!heap_stop)await sleep(delay);
+    while(!heap_stop)await sleep(heap_delay.value);
     return heap_stop=false;
 }
 
-function heap_sort(target_canvas, n, delay, palette){
+function heap_sort(target_canvas, n, palette){
 	let input_array=[];
 	for(let i=0;i<n;i++){
 		input_array[i] = new Pilon(i+1);
 	}
 	input_array.sort(() => Math.random() - 0.5);
-	return heap_sort_util(input_array, target_canvas, delay, palette);
+	return heap_sort_util(input_array, target_canvas, palette);
 }
 
-async function heap_reset(target_canvas, n, delay, palette){
+async function heap_reset(target_canvas, n, palette){
 	heap_stop=true;
 	while(heap_stop) await sleep(10);
 	
-	heap_sort(target_canvas, n, delay, palette);
+	heap_sort(target_canvas, n, palette);
 }
 
 function heap_pause(){

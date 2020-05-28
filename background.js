@@ -169,7 +169,7 @@ async function flex(target_canvas, palette){
 				await sleep(MANDELBROT_DELAY);
 			}
 	}
-	//draw_grid(target_canvas, palette, grid, MANDELBROT_X, MANDELBROT_Y);
+	draw_grid(target_canvas, palette, grid, MANDELBROT_X, MANDELBROT_Y);
 }
 
 function background(target_canvas, palette){

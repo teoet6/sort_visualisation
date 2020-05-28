@@ -2,7 +2,9 @@
 //radix_reset() for resetting (please give parameters)
 let radix_stop = false;
 let radix_pauses = 1;
-async function getMax(array, target_canvas, delay, palette){
+var radix_delay = document.getElementById("radix_delay");
+
+async function getMax(array){
 	let max = 0;
 	for (let i in array) {
 		num = array[i];
@@ -15,8 +17,8 @@ function getPosition(num,place){
 	return Math.floor(num / Math.pow(10,place)) % 10;
 }
 
-async function radix_sort_util(array, target_canvas, delay, palette){
-	var max = await getMax(array, target_canvas, delay, palette);
+async function radix_sort_util(array, target_canvas, palette){
+	var max = await getMax(array);
 	for (let i = 0; i < max; i++) {
 		let sorted = true;
 		/*Makes an array of empty arrays with length 10*/
@@ -26,7 +28,8 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 			array[j].id=1;
 			drawArray(target_canvas, array, palette);
 			do{
-				await sleep(delay);
+				radix_delay = document.getElementById("radix_delay");
+				await sleep(radix_delay.value);
 				if(radix_stop) return radix_stop=false;
 			}while(radix_pauses > 0)
 			array[j].id=0;
@@ -40,7 +43,8 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 				array[g].id=1;
 				drawArray(target_canvas, array, palette);
 				do{
-					await sleep(delay);
+					radix_delay = document.getElementById("radix_delay");
+					await sleep(radix_delay.value);
 					if(radix_stop) return radix_stop=false;
 				}while(radix_pauses > 0)
 				array[g].id=0;
@@ -48,25 +52,25 @@ async function radix_sort_util(array, target_canvas, delay, palette){
 			}
 		}
 	}
-	while(!radix_stop)await sleep(delay);
+	while(!radix_stop)await sleep(radix_delay.value);
 	return radix_stop=false;
 }
-function radix_sort(target_canvas, n, delay, palette){
+function radix_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
 		target_array[i] = new Pilon(i+1);
 	}
 	target_array.sort(() => Math.random() - 0.5);
-	radix_sort_util(target_array, target_canvas, delay, palette);
+	radix_sort_util(target_array, target_canvas, palette);
 }
-async function radix_reset(target_canvas, n, delay, palette){
+async function radix_reset(target_canvas, n, palette){
 	if(radix_stop)return;
 	//console.log("entered");
 	radix_stop=true;
 	while(radix_stop) await sleep(1);
 	//console.log("exited");
 	
-	radix_sort(target_canvas, n, delay, palette);
+	radix_sort(target_canvas, n, palette);
 }
 
 function radix_pause(){

@@ -2,7 +2,8 @@
 //cocktail_reset() for resetting (please give parameters)
 let cocktail_stop = false;
 let cocktail_pauses = 1;
-async function cocktail_sort(target_canvas, n, delay, palette){
+var cocktail_delay = document.getElementById("cocktail_delay");
+async function cocktail_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
 		target_array[i] = new Pilon(i+1);
@@ -19,7 +20,8 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 			target_array[i+1].id = 1;
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				cocktail_delay = document.getElementById("cocktail_delay");
+				await sleep(cocktail_delay.value);
 				if(cocktail_stop) return cocktail_stop=false;
 			}while(cocktail_pauses > 0)
 
@@ -33,7 +35,8 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				cocktail_delay = document.getElementById("cocktail_delay");
+				await sleep(cocktail_delay.value);
 				if(cocktail_stop) return cocktail_stop=false;
 			}while(cocktail_pauses > 0)
 			target_array[l].id = 0;
@@ -51,7 +54,8 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 			target_array[i-1].id = 1;
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				cocktail_delay = document.getElementById("cocktail_delay");
+				await sleep(cocktail_delay.value);
 				if(cocktail_stop) return cocktail_stop=false;
 			}while(cocktail_pauses > 0)
 
@@ -64,7 +68,7 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				await sleep(cocktail_delay.value);
 				if(cocktail_stop) return cocktail_stop=false;
 			}while(cocktail_pauses > 0)
 
@@ -76,15 +80,15 @@ async function cocktail_sort(target_canvas, n, delay, palette){
 		l++;
 		if(!swapped)break;
 	}
-	while(!cocktail_stop)await sleep(delay);
+	while(!cocktail_stop)await sleep(cocktail_delay.value);
 	return cocktail_stop=false;
 }
 
-async function cocktail_reset(target_canvas, n, delay, palette){
+async function cocktail_reset(target_canvas, n, palette){
 	cocktail_stop=true;
 	while(cocktail_stop) await sleep(10);
 	
-	cocktail_sort(target_canvas, n, delay, palette);
+	cocktail_sort(target_canvas, n, palette);
 }
 
 function cocktail_pause(){

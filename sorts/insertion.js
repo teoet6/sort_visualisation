@@ -2,7 +2,8 @@
 //insertion_reset() for resetting (please give parameters)
 let insertion_stop = false;
 let insertion_pauses = 1;
-async function insertion_sort(target_canvas, n, delay, palette){
+var insertion_delay = document.getElementById("insertion_delay");
+async function insertion_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
 		target_array[i] = new Pilon(i+1);
@@ -16,7 +17,8 @@ async function insertion_sort(target_canvas, n, delay, palette){
 			target_array[i-1].id = 1;
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				insertion_delay = document.getElementById("insertion_delay");
+				await sleep(insertion_delay.value);
 				if(insertion_stop) return insertion_stop=false;
 			}while(insertion_pauses > 0)
 
@@ -28,7 +30,8 @@ async function insertion_sort(target_canvas, n, delay, palette){
 
 			drawArray(target_canvas, target_array, palette);
 			do{
-				await sleep(delay);
+				insertion_delay = document.getElementById("insertion_delay");
+				await sleep(insertion_delay.value);
 				if(insertion_stop) return insertion_stop=false;
 			}while(insertion_pauses > 0)
 			target_array[t].id = 0;
@@ -36,15 +39,15 @@ async function insertion_sort(target_canvas, n, delay, palette){
 			target_array[i-1].id = 0;
 		}
 	}
-	while(!insertion_stop)await sleep(delay);
+	while(!insertion_stop)await sleep(insertion_delay.value);
 	return insertion_stop=false;
 }
 
-async function insertion_reset(target_canvas, n, delay, palette){
+async function insertion_reset(target_canvas, n, palette){
 	insertion_stop=true;
 	while(insertion_stop) await sleep(10);
 	
-	insertion_sort(target_canvas, n, delay, palette);
+	insertion_sort(target_canvas, n, palette);
 }
 
 function insertion_pause(){
