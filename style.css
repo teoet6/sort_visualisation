@@ -1,49 +1,61 @@
 #teoet{
-    height: 10%;
-    width: 10%;
+	height: 10%;
+	width: 10%;
 }
 table{
-    border-collapse: collapse;
-    width: 1000px;
-    border-radius: 30px;
+	border-collapse: collapse;
+	width: 50%;
+	margin-left: 25%;
+	border-radius: 30px;
 }
 tr{
-    width: 1000px;
-    background-color: rgb(250, 125, 188);
-    border: solid black 2px;
-    border-radius: 30px;
+	width: 1000px;
+	/*background-color: rgb(250, 125, 188);*/
+	background-color: #44fd;
+	border: solid #8ff8 2px;
+	border-radius: 30px;
 }
 
 td{
-    margin: 5px;
+	margin: 5px;
 }
 
 th{
-    float: left;
+	float: left;
 }
 .Sort-Name{
-    display: inline-block;
-    font-size: 20px;
+	display: inline-block;
+	font-size: 20px;
 }
 #Table-Section-Names{
-    font-size: 30px;
-    background-color: lightgray;
+	font-size: 30px;
+	background-color: #8ff8;
 }
 
 .Extend{
-    display: inline-block;
+	display: inline-block;
 }
 
 canvas{
-    margin-right: 10px;
-    width: 120%;
+	margin-right: 10px;
+	width: 120%;
+}
+
+#bg_canvas{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -10;
 }
 
 .reset_button{
-    margin-bottom: 10px;
-    display: inline-block;
+	margin-bottom: 10px;
+	display: inline-block;
 }
 
 p{
 	display: inline-block;
+	color: white;
 }
