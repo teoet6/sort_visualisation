@@ -2,7 +2,8 @@
 //selection_reset() for resetting (please give parameters)
 let selection_stop = false;
 let selection_pauses = 1;
-async function selection_sort(target_canvas, n, delay, palette){
+var selection_delay = document.getElementById("selection_delay");
+async function selection_sort(target_canvas, n, palette){
     let target_array=[];
 	for(let i = 0 ; i < n ; i++){
 		target_array[i] = new Pilon(i+1);
@@ -21,7 +22,8 @@ async function selection_sort(target_canvas, n, delay, palette){
             }
 	    drawArray(target_canvas, target_array, palette);
 	    do{
-	        await sleep(delay);
+            selection_delay = document.getElementById("selection_delay");
+	        await sleep(selection_delay.value);
 	        if(selection_stop) return selection_stop=false;
 	    }while(selection_pauses > 0)
             if(target_array[j].id==1){target_array[j].id=0;}
@@ -38,19 +40,20 @@ async function selection_sort(target_canvas, n, delay, palette){
         target_array[i].id=1
         drawArray(target_canvas, target_array, palette);
 	do{
-	    await sleep(delay);
+        selection_delay = document.getElementById("selection_delay");
+	    await sleep(selection_delay.value);
 	    if(selection_stop) return selection_stop=false;
 	}while(selection_pauses > 0)
     }
-    while(!selection_stop)await sleep(delay);
+    while(!selection_stop)await sleep(selection_delay.value);
     return selection_stop=false;
 }
 
-async function selection_reset(target_canvas, n, delay, palette){
+async function selection_reset(target_canvas, n, palette){
 	selection_stop=true;
 	while(selection_stop) await sleep(10);
 	
-	selection_sort(target_canvas, n, delay, palette);
+	selection_sort(target_canvas, n, palette);
 }
 
 function selection_pause(){
