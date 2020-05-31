@@ -15,6 +15,7 @@
 		<script src="drawer.js"></script>
 		<script src="pilon.js"></script>
 		<script src="sleep.js"></script>
+		<script src="acceptableNumber.js"></script>
 		<script src="sorts/bubble.js"></script>
 		<script src="sorts/cocktail.js"></script>
 		<script src="sorts/insertion.js"></script>
@@ -56,18 +57,20 @@
 							<div id="bubble_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="bubble_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="bubble_delay">
 								</div>
 
 								<canvas id="canvas_bubble">
 									<script>
 										let canvas_bubble = document.getElementById("canvas_bubble");
+										var bubble_n=30;
 										bubble_sort(canvas_bubble, 30, palette);
 									</script>
 								</canvas>
 								<div>
 									<script src="buttons/stop_button.js"></script>
-									<button type="submit" class="reset_button" onclick="bubble_reset(canvas_bubble, 30, palette)"> Reset Visualisation</button>
+									<input type="number" class="input" id="bubble_n">
+									<button type="submit" class="reset_button" onclick="bubble_n=document.getElementById('bubble_n');bubble_reset(canvas_bubble, acceptableNumber(bubble_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="bubble_stop_button" onclick="stop_button('bubble_stop_button', bubble_pause, bubble_resume)">Pause Visualisation</button>
 								</div>
 							</div>
@@ -80,7 +83,7 @@
 							<div id="cocktail_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="cocktail_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="cocktail_delay">
 								</div>
 
 								<canvas id="canvas_cocktail">
@@ -104,7 +107,7 @@
 							<div id="insertion_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="insertion_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="insertion_delay">
 								</div>
 
 								<canvas id="canvas_insertion">
@@ -128,7 +131,7 @@
 							<div id="heap_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="heap_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="heap_delay">
 								</div>
 
 								<canvas id="canvas_heap">
@@ -152,7 +155,7 @@
 							<div id="selection_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="selection_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="selection_delay">
 								</div>
 
 								<canvas id="canvas_selection">
@@ -176,7 +179,7 @@
 							<div id="merge_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="merge_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="merge_delay">
 								</div>
 
 								<canvas id="canvas_merge">
@@ -200,7 +203,7 @@
 							<div id="quick_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="quick_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="quick_delay">
 								</div>
 
 								<canvas id="canvas_quick">
@@ -224,7 +227,7 @@
 							<div id="counting_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="counting_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="counting_delay">
 								</div>
 
 								<canvas id="canvas_counting">
@@ -248,7 +251,7 @@
 							<div id="radix_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="radix_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="radix_delay">
 								</div>
 
 								<canvas id="canvas_radix">
@@ -272,7 +275,7 @@
 							<div id="oddEven_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="oddEven_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="oddEven_delay">
 								</div>
 
 								<canvas id="canvas_oddEven">
@@ -297,7 +300,7 @@
 							<div id="shell_div"  style="display: none;">
 
 								<div class="slidecontainer">
-									<input type="range" min="1" max="1000" value="500" class="slider" id="shell_delay">
+									<input type="range" min="0" max="1000" value="500" class="slider" id="shell_delay">
 								</div>
 
 								<canvas id="canvas_shell">

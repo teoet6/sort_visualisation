@@ -8,6 +8,6 @@ function drawArray(targetCanvas, targetArray, palette){
 
 	for(let i = 0 ; i < n ; i++){
 		targetContext.fillStyle = palette[targetArray[i].id];
-		targetContext.fillRect(i*unitW, targetCanvas.height, unitW-3, -targetArray[i].value*unitH);
+		targetContext.fillRect(i*unitW, targetCanvas.height, unitW*0.9, -targetArray[i].value*unitH);
 	}
 }
