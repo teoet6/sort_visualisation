@@ -3,6 +3,7 @@
 let cocktail_stop = false;
 let cocktail_pauses = 1;
 var cocktail_delay = document.getElementById("cocktail_delay");
+var cocktail_n=30;
 async function cocktail_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){

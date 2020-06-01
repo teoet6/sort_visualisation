@@ -63,14 +63,13 @@
 								<canvas id="canvas_bubble">
 									<script>
 										let canvas_bubble = document.getElementById("canvas_bubble");
-										var bubble_n=30;
 										bubble_sort(canvas_bubble, 30, palette);
 									</script>
 								</canvas>
 								<div>
 									<script src="buttons/stop_button.js"></script>
-									<input type="number" class="input" id="bubble_n">
-									<button type="submit" class="reset_button" onclick="bubble_n=document.getElementById('bubble_n');bubble_reset(canvas_bubble, acceptableNumber(bubble_n), palette)"> Reset Visualisation</button>
+									<input type="number" class="input" id="bubble_n" value="30">
+									<button type="submit" class="reset_button" onclick="bubble_n=document.getElementById('bubble_n');console.log(bubble_n.value);bubble_reset(canvas_bubble, acceptableNumber(bubble_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="bubble_stop_button" onclick="stop_button('bubble_stop_button', bubble_pause, bubble_resume)">Pause Visualisation</button>
 								</div>
 							</div>
@@ -94,7 +93,8 @@
 								</canvas>
 								<div>
 									<script src="buttons/stop_button.js"></script>
-									<button type="submit" class="reset_button" onclick="cocktail_reset(canvas_cocktail, 30, palette)"> Reset Visualisation</button>
+									<input type="number" class="input" id="cocktail_n" value="30">
+									<button type="submit" class="reset_button" onclick="cocktail_n=document.getElementById('cocktail_n');cocktail_reset(canvas_cocktail, acceptableNumber(cocktail_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_pause, cocktail_resume)">Pause Visualisation</button>
 								</div>
 							</div>
@@ -118,7 +118,8 @@
 								</canvas>
 								<div>
 									<script src="buttons/stop_button.js"></script>
-									<button type="submit" class="reset_button" onclick="insertion_reset(canvas_insertion, 30, 0, palette)"> Reset Visualisation</button>
+									<input type="number" class="input" id="insertion_n" value="30">
+									<button type="submit" class="reset_button" onclick="insertion_n=document.getElementById('insertion_n');insertion_reset(canvas_insertion, acceptableNumber(insertion_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="insertion_stop_button" onclick="stop_button('insertion_stop_button', insertion_pause, insertion_resume)">Pause Visualisation</button>
 								</div>
 							</div>
@@ -142,7 +143,8 @@
 								</canvas>
 								<div>
 									<script src="buttons/stop_button.js"></script>
-									<button type="submit" class="reset_button" onclick="heap_reset(canvas_heap, 30, palette)"> Reset Visualisation</button>
+									<input type="number" class="input" id="heap_n" value="30">
+									<button type="submit" class="reset_button" onclick="heap_n=document.getElementById('heap_n');heap_reset(canvas_heap, acceptableNumber(heap_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
 								</div>
 							</div>
@@ -185,7 +187,7 @@
 								<canvas id="canvas_merge">
 									<script>
 										let canvas_merge = document.getElementById("canvas_merge");
-										merge_sort(canvas_merge, 30, palette);
+										merge_sort(canvas_merge, 1000, palette);
 									</script>
 								</canvas>
 								<div>
