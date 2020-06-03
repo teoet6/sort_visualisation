@@ -3,6 +3,7 @@
 let heap_stop = false;
 let heap_pauses = 1;
 var heap_delay = document.getElementById("heap_delay");
+var heap_n=30;
 function max_heap(input, i) {
     const left = 2 * i + 1
     const right = 2 * i + 2

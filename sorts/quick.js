@@ -1,4 +1,4 @@
-//queck_pause() / quick_resume() for pausing/resuming
+//quick_pause() / quick_resume() for pausing/resuming
 //quick_reset() for resetting (please give parameters)
 let quick_stop = false;
 let quick_pauses = 1;
@@ -28,6 +28,8 @@ async function quick_sort_util(left, right, target_canvas, palette) {
 	var index;
 	if ((right-left+1) > 1){
 		index = partition(left, right);
+		
+		drawArray(target_canvas, quick_target_array, palette);
 		if (left < index - 1){
 			if(index>0){
 				quick_target_array[index-1].id=0
@@ -70,6 +72,7 @@ async function quick_sort_util(left, right, target_canvas, palette) {
 			
 		}
 	}
+	drawArray(target_canvas, quick_target_array, palette);
 }
 async function quick_sort(target_canvas, n, palette){
 	for(let i = 0 ; i < n ; i++){
@@ -77,7 +80,7 @@ async function quick_sort(target_canvas, n, palette){
 	}
 	quick_target_array.sort(() => Math.random() - 0.5);
 	quick_sort_util(0, n-1, target_canvas, palette);
-	while(!quick_stop)await sleep(quick_delay.value);
+	while(!quick_stop)await sleep(10);
 	return quick_stop=false;
 }
 async function quick_reset(target_canvas, n, palette){

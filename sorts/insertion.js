@@ -3,6 +3,7 @@
 let insertion_stop = false;
 let insertion_pauses = 1;
 var insertion_delay = document.getElementById("insertion_delay");
+var insertion_n=30;
 async function insertion_sort(target_canvas, n, palette){
 	let target_array=[];
 	for(let i = 0 ; i < n ; i++){
