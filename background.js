@@ -105,7 +105,6 @@ async function brain(target_canvas, palette){
 		if(get_2d_array(grid, x-1, y  ) == 2) ans++;
 		return ans;
 	}
-
 	function get_new_state(state, neigh){
 		switch(state){
 			case 2 : return 1;
