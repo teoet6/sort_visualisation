@@ -93,7 +93,7 @@ p{
 button{
 	cursor: pointer;
 }
-.slider {
+input[type="range"] {
 	-webkit-appearance: none;
 	width: 100%;
 	height: 5px;
@@ -107,7 +107,6 @@ button{
 .slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	-webkit-transform: rotate(-45deg);
-	/*border-radius: 50px;*/
 	border:2px solid #0fa;
 	appearance: none;
 	width: 25px;
@@ -117,8 +116,12 @@ button{
 }
   
 .slider::-moz-range-thumb {
+	-webkit-appearance: none;
+	-webkit-transform: rotate(-45deg);
+	border:2px solid #0fa;
+	appearance: none;
 	width: 25px;
 	height: 25px;
-	background: #0cf;
+	background: #44f;
 	cursor: pointer;
 }
