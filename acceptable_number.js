@@ -1,4 +1,4 @@
-function acceptableNumber(n){
+function acceptable_number(n){
 	n = Number(n);
 	if(n==null || n==NaN){
 		n.value=30;

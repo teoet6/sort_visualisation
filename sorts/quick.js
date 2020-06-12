@@ -47,7 +47,7 @@ async function quick_partition(target_canvas, palette, l, r){
 async function quick_sort_util(target_canvas, palette, l, r){
 	if(l <= r){
 		if(quick_stop) return;
-		console.log(l, r);
+		//console.log(l, r);
 		let m = await quick_partition(target_canvas, palette, l, r);
 		await quick_sort_util(target_canvas, palette, l, m-1);
 		await quick_sort_util(target_canvas, palette, m+1, r);

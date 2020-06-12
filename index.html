@@ -16,7 +16,7 @@
 			<script src="drawer.js"></script>
 			<script src="pilon.js"></script>
 			<script src="sleep.js"></script>
-			<script src="acceptableNumber.js"></script>
+			<script src="acceptable_number.js"></script>
 			<script src="sorts/bubble.js"></script>
 			<script src="sorts/cocktail.js"></script>
 			<script src="sorts/insertion.js"></script>
@@ -66,7 +66,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="bubble_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="bubble_n=document.getElementById('bubble_n');console.log(bubble_n.value);bubble_reset(canvas_bubble, acceptableNumber(bubble_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="bubble_n=document.getElementById('bubble_n').value;bubble_reset(canvas_bubble, acceptable_number(bubble_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="bubble_stop_button" onclick="stop_button('bubble_stop_button', bubble_pause, bubble_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -96,7 +96,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="cocktail_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="cocktail_n=document.getElementById('cocktail_n');console.log(cocktail_n.value);cocktail_reset(canvas_cocktail, acceptableNumber(cocktail_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="cocktail_n=document.getElementById('cocktail_n').value;cocktail_reset(canvas_cocktail, acceptable_number(cocktail_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="cocktail_stop_button" onclick="stop_button('cocktail_stop_button', cocktail_pause, cocktail_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -126,7 +126,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="insertion_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="insertion_n=document.getElementById('insertion_n');console.log(insertion_n.value);insertion_reset(canvas_insertion, acceptableNumber(insertion_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="insertion_n=document.getElementById('insertion_n').value;insertion_reset(canvas_insertion, acceptable_number(insertion_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="insertion_stop_button" onclick="stop_button('insertion_stop_button', insertion_pause, insertion_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -156,7 +156,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="heap_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="heap_n=document.getElementById('heap_n');console.log(heap_n.value);heap_reset(canvas_heap, acceptableNumber(heap_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="heap_n=document.getElementById('heap_n').value;heap_reset(canvas_heap, acceptable_number(heap_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="heap_stop_button" onclick="stop_button('heap_stop_button', heap_pause, heap_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -186,7 +186,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="selection_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="selection_n=document.getElementById('selection_n');console.log(selection_n.value);selection_reset(canvas_selection, acceptableNumber(selection_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="selection_n=document.getElementById('selection_n').value;selection_reset(canvas_selection, acceptable_number(selection_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="selection_stop_button" onclick="stop_button('selection_stop_button', selection_pause, selection_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -216,7 +216,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="merge_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="merge_n=document.getElementById('merge_n');console.log(merge_n.value);merge_reset(canvas_merge, acceptableNumber(merge_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="merge_n=document.getElementById('merge_n').value;merge_reset(canvas_merge, acceptable_number(merge_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="merge_stop_button" onclick="stop_button('merge_stop_button', merge_pause, merge_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -246,7 +246,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="quick_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="quick_n=document.getElementById('quick_n');console.log(quick_n.value);quick_reset(canvas_quick, acceptableNumber(quick_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="quick_n=document.getElementById('quick_n').value;quick_reset(canvas_quick, acceptable_number(quick_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="quick_stop_button" onclick="stop_button('quick_stop_button', quick_pause, quick_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -276,7 +276,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="counting_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="counting_n=document.getElementById('counting_n');console.log(counting_n.value);counting_reset(canvas_counting, acceptableNumber(counting_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="counting_n=document.getElementById('counting_n').value;counting_reset(canvas_counting, acceptable_number(counting_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="counting_stop_button" onclick="stop_button('counting_stop_button', counting_pause, counting_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -306,7 +306,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="radix_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="radix_n=document.getElementById('radix_n');console.log(radix_n.value);radix_reset(canvas_radix, acceptableNumber(radix_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="radix_n=document.getElementById('radix_n').value;radix_reset(canvas_radix, acceptable_number(radix_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="radix_stop_button" onclick="stop_button('radix_stop_button', radix_pause, radix_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -324,7 +324,7 @@
 				<div id = "oddEven_sort">
 					<tr id="Sorting-type">
 						<td class="Sort-Name">
-							<p>OddEven sort</p> 
+							<p>Odd-Even sort</p> 
 							<button type="submit" class="Extend" id="oddEven_show_button" onclick="show('oddEven_show_button', 'oddEven_div', oddEven_pause, oddEven_resume);" >Show Visualisation</button>
 							<div class="show_div" id="oddEven_div" style="display: none;">
 								<div class = "customisation_div">
@@ -336,7 +336,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="oddEven_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="oddEven_n=document.getElementById('oddEven_n');console.log(oddEven_n.value);oddEven_reset(canvas_oddEven, acceptableNumber(oddEven_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="oddEven_n=document.getElementById('oddEven_n').value;oddEven_reset(canvas_oddEven, acceptable_number(oddEven_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="oddEven_stop_button" onclick="stop_button('oddEven_stop_button', oddEven_pause, oddEven_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
@@ -366,7 +366,7 @@
 									<p class="customization_text">Number of Pilons: </p>
 									<input type="number" class="input" id="shell_n" value="30">
 									<br>
-									<button type="submit" class="reset_button" onclick="shell_n=document.getElementById('shell_n');console.log(shell_n.value);shell_reset(canvas_shell, acceptableNumber(shell_n), palette)"> Reset Visualisation</button>
+									<button type="submit" class="reset_button" onclick="shell_n=document.getElementById('shell_n').value;shell_reset(canvas_shell, acceptable_number(shell_n), palette)"> Reset Visualisation</button>
 									<button type="submit" class="reset_button" id="shell_stop_button" onclick="stop_button('shell_stop_button', shell_pause, shell_resume)">Pause Visualisation</button>
 								</div>
 								<div class="canvas_div">
