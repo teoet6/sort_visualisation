@@ -13,7 +13,7 @@ async function merge_sort_util(target_canvas, palette, l, r){
 	do{
 		merge_delay = document.getElementById("merge_delay");
 		if(merge_stop){
-			//if(r-l+1 == merge_target_array.length)merge_stop=false;
+			if(r-l+1 == merge_target_array.length)merge_stop=false;
 			merge_target_array[l].id=0;
 			merge_target_array[r].id=0;
 			return;
@@ -51,7 +51,7 @@ async function merge_sort_util(target_canvas, palette, l, r){
 			merge_target_array[p1].id=0;
 			merge_target_array[p2].id=0;
 			if(merge_stop){
-				//if(r-l+1 == merge_target_array.length)merge_stop=false;
+				if(r-l+1 == merge_target_array.length)merge_stop=false;
 				merge_target_array[l].id=0;
 				merge_target_array[r].id=0;
 				return;
@@ -81,7 +81,7 @@ async function merge_sort_util(target_canvas, palette, l, r){
 		do{
 			merge_target_array[i].id=0;
 			if(merge_stop){
-				//if(r-l+1 == merge_target_array.length)merge_stop=false;
+				if(r-l+1 == merge_target_array.length)merge_stop=false;
 				merge_target_array[l].id=0;
 				merge_target_array[r].id=0;
 				return;
@@ -92,6 +92,10 @@ async function merge_sort_util(target_canvas, palette, l, r){
 	}
 	merge_target_array[l].id=0;
 	merge_target_array[r].id=0;
+	if(r-l+1 == merge_target_array.length){
+		while(!merge_stop)await sleep(merge_delay.value);
+		return merge_stop=false;
+	}
 }
 
 async function merge_sort(target_canvas, n, palette){
@@ -102,8 +106,7 @@ async function merge_sort(target_canvas, n, palette){
 	merge_target_array.sort(() => Math.random() - 0.5);
 	merge_target_array[n]=new Pilon(n+1);
 	merge_sort_util(target_canvas, palette, 0, n);
-	while(!merge_stop)await sleep(merge_delay.value);
-	return merge_stop=false;
+	
 }
 
 async function merge_reset(target_canvas, n, palette){
