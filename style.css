@@ -1,17 +1,23 @@
-
+#teoet{
+	height: 10%;
+	width: 10%;
+}
 table{
 	border-collapse: collapse;
 	width: 50%;
 	margin-left: 25%;
+	border-radius: 30px;
 }
 tr{
-	width: 100%;
+	width: 1000px;
+	/*background-color: rgb(250, 125, 188);*/
 	background-color: #44f;
 	border: solid #8ff8 2px;
+	border-radius: 30px;
 }
 
 td{
-	width: 100%;
+	margin: 5px;
 }
 
 th{
@@ -30,6 +36,10 @@ th{
 	display: inline-block;
 }
 
+canvas{
+	margin-right: 10px;
+	width: 120%;
+}
 
 #bg_canvas{
 	width: 100%;
@@ -43,6 +53,7 @@ th{
 .Extend{
 	margin-bottom: 10px;
 	display: inline-block;
+	/*border-radius: 7px;*/
 	background-color: transparent;
 	color: #0cf;
 	border:2px solid #0cf;
@@ -54,9 +65,9 @@ th{
 }
 
 .reset_button{
-	width: 45.3%;
 	margin-bottom: 10px;
 	display: inline-block;
+	/*border-radius: 7px;*/
 	background-color: transparent;
 	color: #0cf;
 	border:2px solid #0cf;
@@ -68,13 +79,12 @@ th{
 }
 
 p{
-	margin-left: 5px;
 	display: inline-block;
 	color: white;
 }
 
 .input{
-	width: 90%;
+	border-radius: "50px";
 	border:2px solid #0cf;
 	background-color: transparent;
 	color: #0cf;
@@ -83,21 +93,16 @@ p{
 button{
 	cursor: pointer;
 }
-.slider {
+input[type="range"] {
 	-webkit-appearance: none;
-	margin: 0px 0px 5% 0%;
-	width: 92%;
+	width: 100%;
 	height: 5px;
 	background: linear-gradient(90deg, #8ff 0%, #0cf 100%);
+	/*border-radius:2px;*/
+	/*border: 0px solid #0cf;*/
 	outline: none;
 	opacity: 1;
 }
-
-* {
-	outline:0;
-	font-family: 'Times New Roman', Times, serif;
-}
-
   
 .slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
@@ -111,41 +116,12 @@ button{
 }
   
 .slider::-moz-range-thumb {
+	-webkit-appearance: none;
 	-webkit-transform: rotate(-45deg);
+	border:2px solid #0fa;
+	appearance: none;
 	width: 25px;
 	height: 25px;
-	background: #0cf;
+	background: #44f;
 	cursor: pointer;
-}
-
-.customisation_div{
-	margin: 0% 0% 0% 5px;
-	display: inline-block;
-	width: 45%;
-	height: 100%;
-}
-
-.canvas_div{
-	margin-right: 0px;
-	margin-left: 4%;
-	width: 45%;
-	display: inline-block;
-}
-
-.sort_canvas{
-	width: 100%;
-}
-
-.Customization_Text{
-	
-}
-
-.SliderValue{
-	border-color: transparent;
-	background-color: transparent;
-	color: white;
-	margin: 0px 0px 5% 0px;
-}
-
-.show_div{
 }
