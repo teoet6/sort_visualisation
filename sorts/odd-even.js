@@ -48,11 +48,7 @@ async function oddEven_sort_util(target_array, target_canvas, palette) {
 }
 
 function oddEven_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-	target_array.sort(() => Math.random() - 0.5);
+	let target_array=make_shuffeled_piloni(n);
 	oddEven_sort_util(target_array, target_canvas, palette);
 }
 

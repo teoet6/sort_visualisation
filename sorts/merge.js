@@ -95,11 +95,7 @@ async function merge_sort_util(target_canvas, palette, l, r){
 }
 
 async function merge_sort(target_canvas, n, palette){
-	merge_target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		merge_target_array[i] = new Pilon(i+1);
-	}
-	merge_target_array.sort(() => Math.random() - 0.5);
+	merge_target_array=make_shuffeled_piloni(n);
 	merge_target_array[n]=new Pilon(n+1);
 	merge_sort_util(target_canvas, palette, 0, n);
 	while(!merge_stop)await sleep(merge_delay.value);

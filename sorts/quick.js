@@ -56,11 +56,7 @@ async function quick_sort_util(target_canvas, palette, l, r){
 }
 
 async function quick_sort(target_canvas, n, palette){
-	quick_target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		quick_target_array[i] = new Pilon(i+1);
-	}
-	quick_target_array.sort(() => Math.random() - 0.5);
+	quick_target_array=make_shuffeled_piloni(n);
 	quick_sort_util(target_canvas, palette, 0, n-1);
 	while(!quick_stop)await sleep(quick_delay.value);
 	return quick_stop=false;

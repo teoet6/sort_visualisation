@@ -5,12 +5,7 @@ let cocktail_pauses = 1;
 var cocktail_delay = document.getElementById("cocktail_delay");
 var cocktail_n=30;
 async function cocktail_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-
-	target_array.sort(() => Math.random() - 0.5);
+	let target_array=make_shuffeled_piloni(n);
 	let l=0, r=n-1;
 	for(let t = 0 ; t < n ; t+=2){
 		let swapped=false;

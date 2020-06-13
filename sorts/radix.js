@@ -56,11 +56,7 @@ async function radix_sort_util(array, target_canvas, palette){
 	return radix_stop=false;
 }
 function radix_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-	target_array.sort(() => Math.random() - 0.5);
+	let target_array=make_shuffeled_piloni(n);
 	radix_sort_util(target_array, target_canvas, palette);
 }
 async function radix_reset(target_canvas, n, palette){

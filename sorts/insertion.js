@@ -5,12 +5,7 @@ let insertion_pauses = 1;
 var insertion_delay = document.getElementById("insertion_delay");
 var insertion_n=30;
 async function insertion_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-	target_array.sort(() => Math.random() - 0.5);
-
+	let target_array=make_shuffeled_piloni(n);
 	for(let t = 0 ; t < n ; t++){
 		for(let i = t ; i > 0 ; i--){
 			target_array[t].id = 2;

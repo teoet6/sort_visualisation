@@ -5,11 +5,7 @@ let bubble_pauses = 1;
 var bubble_delay = document.getElementById("bubble_delay");
 var bubble_n=30;
 async function bubble_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-	target_array.sort(() => Math.random() - 0.5);
+	let target_array=make_shuffeled_piloni(n);
 	for(let t = n-1 ; t >= 0 ; t--){
 		let swapped=false;
 		for(let i = 0 ; i < t ; i++){

@@ -64,11 +64,7 @@ async function heap_sort_util(input, target_canvas, palette) {
 }
 
 function heap_sort(target_canvas, n, palette){
-	let input_array=[];
-	for(let i=0;i<n;i++){
-		input_array[i] = new Pilon(i+1);
-	}
-	input_array.sort(() => Math.random() - 0.5);
+	let input_array=make_shuffeled_piloni(n);
 	return heap_sort_util(input_array, target_canvas, palette);
 }
 

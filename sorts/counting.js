@@ -41,12 +41,7 @@ async function counting_sort_util(arr, min, max, target_canvas, palette){
 };
 
 function counting_sort(target_canvas, n, palette){
-	let target_array=[];
-	for(let i = 0 ; i < n ; i++){
-		target_array[i] = new Pilon(i+1);
-	}
-	target_array.sort(() => Math.random() - 0.5);
-	
+	let target_array=make_shuffeled_piloni(n);
 	counting_sort_util(target_array, 1, n, target_canvas, palette);
 }
 async function counting_reset(target_canvas, n, palette){
